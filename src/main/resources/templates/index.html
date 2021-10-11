@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org/"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<table>
+
+    <tbody>
+    <tr th:each="post : ${listPost}">
+        <td>[[${post.title}]]</td>
+        <td>[[${post.content}]]</td>
+        <td>[[${post.createdDate}]]</td>
+
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>
