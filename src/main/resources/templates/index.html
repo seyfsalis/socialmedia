@@ -1,23 +1,18 @@
 <!DOCTYPE html>
-<html lang="tr" xmlns:th="http://www.thymeleaf.org/"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Index</title>
+    <meta charset="ISO-8859-1">
+    <title>Welcome to CodeJava Home</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<table>
-
-    <tbody>
-    <tr th:each="post : ${listPost}">
-        <td>[[${post.title}]]</td>
-        <td>[[${post.content}]]</td>
-        <td>[[${post.createdDate}]]</td>
-
-    </tr>
-    </tbody>
-</table>
-
+<div class="container text-center">
+    <h1>Welcome to CodeJava.net</h1>
+    <h3><a th:href="@{/register}">Kayıt Ol</a></h3>
+    <h3><a th:href="@{/login}">Giriş Yap</a></h3>
+</div>
 
 </body>
 </html>

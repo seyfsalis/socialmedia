@@ -26,12 +26,12 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name="author")
-    private Person person;
+    private User person;
 
     public Post() {
     }
 
-    public Post(String title, String content, Date createdDate, Person person) {
+    public Post(String title, String content, Date createdDate, User person) {
         this.title = title;
         this.content = content;
         this.createdDate = createdDate;
@@ -70,11 +70,11 @@ public class Post {
         this.createdDate = createdDate;
     }
 
-    public Person getPerson() {
+    public User getPerson() {
         return person;
     }
 
-    public void setPerson(Person person) {
+    public void setPerson(User person) {
         this.person = person;
     }
 }
