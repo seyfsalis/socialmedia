@@ -23,4 +23,8 @@ public class CustomUserDetailService implements UserDetailsService {
 
         return new CustomUserDetail(user);
     }
+
+    public User finById(int id){
+        return userRepository.findById(id);
+    }
 }
