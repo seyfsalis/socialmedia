@@ -1,5 +1,6 @@
 package com.social.socialmedia.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
@@ -7,21 +8,26 @@ import org.hibernate.annotations.OnDeleteAction;
 import javax.persistence.*;
 
 @Entity
-@Table(name="post")
+@Table(name="comment")
 @Data
-public class Post {
+public class Comment {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	Long id;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="post_id", nullable=false)
+	@OnDelete(action = OnDeleteAction.CASCADE)
+	@JsonIgnore
+    Post post;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="user_id", nullable=false)
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	User user;
+	@JsonIgnore
+    User user;
 	
-	String title;
-
 	@Lob
     @Column(columnDefinition="text")
 	String text;
